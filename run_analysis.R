@@ -34,11 +34,9 @@ test.set.subject <- read.table("./UCI HAR Dataset/test/subject_test.txt",
 # Combining Data
 #--------------------------------------------------------------------------
 # Mapping the Activty names to the activity ids
-training.set.activity <- merge(training.set.activity, activity.names, 
-                               by.x = "activity.id", by.y = "id")
+training.set.activity$activity <- activity.names$activity[training.set.activity[,1]]
 
-test.set.activity <- merge(test.set.activity, activity.names, 
-                               by.x = "activity.id", by.y = "id")
+test.set.activity$activity <- activity.names$activity[test.set.activity[,1]]
 
 #--------------------------------------------------------------------------
 # Combine columns for training set and activity set.....
