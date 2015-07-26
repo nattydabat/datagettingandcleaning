@@ -71,7 +71,7 @@ mean.set <- aggregate(full.set[, 4:ncol(full.set)],
                          activity.id = full.set$activity.id,
                          activity = full.set$activity),
                FUN = mean)
-
+mean.set <- mean.set[order(mean.set$subject.id, mean.set$activity.id),]
 #=========================================================================
 # Write results to a text file
 write.table(mean.set, "data_cleaning_project_results.txt", row.names = FALSE)
